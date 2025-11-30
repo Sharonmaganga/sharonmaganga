@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharon Maganga – AI Strategist | CEO of Axiaanalytics | Speaker</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b; /* Dark slate gray/Near black text */
+            background-color: #fafafa; /* Off-White background */
+        }
+        /* --- NEW COLOR PALETTE based on attached image --- */
+        .theme-primary {
+            color: #D4AF37; /* Rich Gold/Ochre (Accent) */
+        }
+        .theme-secondary {
+            color: #0E294B; /* Deep Navy/Dark Blue (Main/Text) */
+        }
+        .theme-bg-primary {
+            background-color: #D4AF37; /* Rich Gold */
+        }
+        .theme-bg-secondary {
+            background-color: #0E294B; /* Deep Navy */
+        }
+        .theme-border-primary {
+            border-color: #D4AF37;
+        }
+        /* --- END NEW COLOR PALETTE --- */
+        
+        .page-section {
+            display: none;
+            min-height: calc(100vh - 64px - 200px);
+        }
+        .page-section.active {
+            display: block;
+        }
+        .ai-gradient-bg {
+            /* Using solid color based on new theme */
+            background: linear-gradient(135deg, #0E294B 0%, #1c3d61 100%); 
+        }
+        .ai-text-gradient {
+            /* Mimic gradient look with new theme colors */
+            background-image: linear-gradient(to right, #0E294B, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0E294B; /* Fallback color */
+        }
+        .ai-shadow {
+            box-shadow: 0 10px 30px rgba(14, 41, 75, 0.1); /* Dark Navy shadow */
+        }
+        .scroll-smooth-y {
+            scroll-behavior: smooth;
+        }
+        /* Tools Page Custom Styling for Active Button */
+        .tools-category-btn.active {
+            background-color: #0E294B; /* Deep Navy background */
+            color: white;
+            border-color: #0E294B;
+        }
+        /* Logo Styling for a 'Fancy' Look */
+        .logo-text {
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="scroll-smooth-y">
+
+    <!-- Navigation Header (Updated Layout and Style) -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- LEFT SIDE GROUP: Logo/Brand Name & Social Media (Spacing Adjusted) -->
+                <!-- FIX: Changed space-x-6 to space-x-3 to move social icons closer to the name/logo -->
+                <div class="flex items-center space-x-3"> 
+                    <!-- Logo/Brand Name -->
+                    <a href="#home" class="flex items-center space-x-2" onclick="showPage('home')">
+                        <!-- NEW Fancier Logo (SM) - Using Deep Navy and Gold -->
+                        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Elegant border/ring in Gold -->
+                            <circle cx="50" cy="50" r="45" stroke="#D4AF37" stroke-width="3" fill="none"/>
+                            <!-- S in Navy -->
+                            <text x="35" y="60" font-family="Georgia, serif" font-size="50" font-weight="bold" fill="#0E294B" text-anchor="middle">S</text>
+                            <!-- M in Gold -->
+                            <text x="65" y="60" font-family="Georgia, serif" font-size="50" font-weight="bold" fill="#D4AF37" text-anchor="middle">M</text>
+                        </svg>
+                        <span class="text-xl md:text-2xl font-bold logo-text theme-secondary tracking-wide">
+                            Sharon Maganga
+                        </span>
+                    </a>
+
+                    <!-- Social Icons (Moved closer to name using space-x-2) -->
+                    <div class="hidden sm:flex space-x-2 items-center">
+                        <a href="https://www.linkedin.com/in/sharonmaganga/" target="_blank" class="text-gray-800 hover:theme-primary transition duration-150" title="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.56-4 0v5.604h-3v-11h3v1.765c1.397-2.716 7-2.584 7 3.238v5.997z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/SharonmagangaAI" target="_blank" class="text-gray-800 hover:theme-primary transition duration-150" title="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.716 0 3.056.01 4.122.06 1.066.05 1.79.243 2.417.481.656.257 1.196.611 1.708 1.123s.866 1.052 1.123 1.708c.238.627.43 1.351.481 2.417.05 1.066.06 1.406.06 4.122s-.01 3.056-.06 4.122c-.05 1.066-.243 1.79-.481 2.417-.257.656-.611 1.196-1.123 1.708s-1.052.866-1.708 1.123c-.627.238-1.351.43-2.417.481-1.066.05-1.406.06-4.122.06s-3.056-.01-4.122-.06c-1.066-.05-1.79-.243-2.417-.481-.656-.257-1.196-.611-1.708-1.123s-.866-1.052-1.123-1.708c-.238-.627-.43-1.351-.481-2.417-.05-1.066-.06-1.406-.06-4.122s.01-3.0"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@SharonMaganga-AI" target="_blank" class="text-gray-800 hover:theme-primary transition duration-150" title="YouTube">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.3c-.2-.7-.7-1.2-1.4-1.4C18.6 6.5 12 6.5 12 6.5s-6.6 0-8.1.4c-.7.2-1.2.7-1.4 1.4-.4 1.6-.4 4.8-.4 4.8s0 3.2.4 4.8c.2.7.7 1.2 1.4 1.4 1.5.4 8.1.4 8.1.4s6.6 0 8.1-.4c.7-.2 1.2-.7 1.4-1.4.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10.5 15.3V9.3l5 3-5 3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- RIGHT SIDE: Nav Links (Added ml-auto to push links right and ms-8 for gap) -->
+                <!-- The combination of ml-auto on this div and space-x-3 on the left div achieves the required separation. -->
+                <div class="flex space-x-4 sm:space-x-6 items-center ml-auto">
+                    <a href="#home" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('home')">Home</a>
+                    <a href="#about" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('about')">About</a>
+                    <a href="#tools" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('tools')">Tools</a>
+                    <a href="#blog" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('blog')">Blog</a>
+                    <a href="#consulting" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('consulting')">Consulting</a>
+                    <a href="#contact" class="text-gray-600 hover:theme-primary font-medium transition duration-150" onclick="showPage('contact')">Contact</a>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- LANDING PAGE (HOME) -->
+    <section id="home" class="page-section active">
+        <header class="py-20 md:py-32 theme-bg-secondary text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                    Sharon Maganga
+                </h1>
+                <p class="text-xl md:text-3xl font-light opacity-90 mb-8 theme-primary">
+                    AI Strategist | CEO of Axiaanalytics | Speaker
+                </p>
+                <p class="max-w-3xl mx-auto text-lg mb-10 font-light text-gray-200">
+                    Empowering organizations and leaders to harness the transformative power of artificial intelligence through strategic consulting, training, and innovation.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#consulting" onclick="showPage('consulting')" class="px-8 py-3 bg-white theme-secondary font-semibold rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 ai-shadow">
+                        Book a Consultation
+                    </a>
+                    <a href="#about" onclick="showPage('about')" class="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:theme-secondary transition duration-300 transform hover:scale-105">
+                        Learn My Story
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Services Section -->
+        <div class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 ai-text-gradient">My Core AI Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 theme-border-primary">
+                        <span class="text-3xl block mb-3 theme-primary">🎯</span>
+                        <h3 class="text-xl font-semibold mb-2">AI Strategy Consulting</h3>
+                        <p class="text-gray-600">Develop comprehensive AI roadmaps aligned with your business goals to drive competitive advantage.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 theme-border-primary">
+                        <span class="text-3xl block mb-3 theme-primary">🚀</span>
+                        <h3 class="text-xl font-semibold mb-2">AI Implementation</h3>
+                        <p class="text-gray-600">Seamlessly integrate Generative AI tools and solutions into your existing business workflows.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 theme-border-primary">
+                        <span class="text-3xl block mb-3 theme-primary">📚</span>
+                        <h3 class="text-xl font-semibold mb-2">Training & Workshops</h3>
+                        <p class="text-gray-600">Empower your team with hands-on training on AI tools, prompt engineering, and best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Trust Section -->
+        <div class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-8">Trusted by Leaders in Industry</h3>
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+                    <span class="text-gray-500 text-lg font-medium">Vivo Energy Kenya</span>
+                    <span class="text-gray-500 text-lg font-medium">Wish Consultancy</span>
+                    <span class="text-gray-500 text-lg font-medium">PSL Limited</span>
+                    <span class="text-gray-500 text-lg font-medium">KINSON Ltd</span>
+                    <span class="text-gray-500 text-lg font-medium">Struchem Africa Ltd</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME PAGE -->
+    <section id="about" class="page-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-extrabold text-center mb-12 ai-text-gradient">About Sharon Maganga</h1>
+            <div class="md:grid md:grid-cols-3 gap-12 items-start">
+                
+                <!-- Profile Image & Quick Facts (Placeholder) -->
+                <div class="col-span-1 mb-8 md:mb-0">
+                    <div class="w-full h-80 bg-gray-200 rounded-2xl flex items-center justify-center mb-6 overflow-hidden">
+                        <img src="https://placehold.co/400x400/0E294B/ffffff?text=Sharon+Maganga+Photo" alt="Sharon Maganga Profile" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-xl font-bold mb-3 theme-primary">Quick Facts</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><span class="theme-primary mr-2">✓</span> Certified AI Consultant</li>
+                            <li class="flex items-center"><span class="theme-primary mr-2">✓</span> Published Author (3 Books)</li>
+                            <li class="flex items-center"><span class="theme-primary mr-2">✓</span> CEO of Axiaanalytics</li>
+                            <li class="flex items-center"><span class="theme-primary mr-2">✓</span> Global Keynote Speaker</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Bio Content -->
+                <div class="col-span-2">
+                    <h2 class="text-3xl font-semibold mb-6 text-gray-800">My Story & Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Sharon Maganga is a renowned AI strategist, entrepreneur, and speaker with over a decade of experience at the intersection of artificial intelligence, digital transformation, and business innovation. As the CEO of Axiaanalytics, she helps organizations harness AI-powered automation, drive innovation, and scale impact across industries including finance, healthcare, government, and entrepreneurship.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Recognized as a Certified Artificial Intelligence Consultant, Sharon has trained thousands of professionals—including corporate executives, government leaders, and entrepreneurs—helping them integrate AI into their businesses and workflows to maximize efficiency and profitability.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        A sought-after speaker, Sharon's expertise spans Generative AI, AI ethics, automation, and business transformation. She has spoken at GDC events and conferences across multiple continents, sharing her knowledge on AI's role in reshaping industries.
+                    </p>
+                    <blockquote class="p-4 border-l-4 theme-border-primary bg-gray-100 italic text-gray-700 rounded-r-lg">
+                        "My mission is clear: to demystify AI, accelerate digital transformation, and equip business leaders with the tools they need to thrive in an AI-powered world."
+                    </blockquote>
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">My Publications</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600 pl-4">
+                            <li>**Demystifying AI**: A comprehensive guide to understanding AI and its practical applications.</li>
+                            <li>**The AI Revolution**: Exploring how AI is transforming industries and creating new opportunities for innovation and growth.</li>
+                            <li>**Why We Still Need Humans**: Examining the irreplaceable role of human judgment in an AI-driven world.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAVORITE TOOLS PAGE -->
+    <section id="tools" class="page-section py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold mb-4 ai-text-gradient">My Favorite AI Tools</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    These are the essential AI applications and resources I use daily to manage my consulting practice, automate workflows, and stay ahead of the curve.
+                </p>
+            </div>
+            
+            <!-- Category Navigation -->
+            <div class="flex flex-wrap justify-center space-x-3 mb-12">
+                <button data-category="all" class="tools-category-btn px-6 py-2 border theme-border-primary theme-primary rounded-full font-medium hover:theme-bg-secondary hover:text-white transition duration-200 active" onclick="filterTools('all')">
+                    All Tools
+                </button>
+                <button data-category="generative" class="tools-category-btn px-6 py-2 border theme-border-primary theme-primary rounded-full font-medium hover:theme-bg-secondary hover:text-white transition duration-200" onclick="filterTools('generative')">
+                    Generative AI
+                </button>
+                <button data-category="automation" class="tools-category-btn px-6 py-2 border theme-border-primary theme-primary rounded-full font-medium hover:theme-bg-secondary hover:text-white transition duration-200" onclick="filterTools('automation')">
+                    Workflow Automation
+                </button>
+                <button data-category="productivity" class="tools-category-btn px-6 py-2 border theme-border-primary theme-primary rounded-full font-medium hover:theme-bg-secondary hover:text-white transition duration-200" onclick="filterTools('productivity')">
+                    Productivity & CRM
+                </button>
+            </div>
+            
+            <!-- Tools Grid -->
+            <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tool Card 1: Generative AI -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="generative">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">Generative Models (Gemini/GPT)</h3>
+                    <p class="text-gray-600 mb-4">
+                        Indispensable for content creation, brainstorming strategies, coding assistance, and rapid prototyping of ideas.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Explore Generative AI →</a>
+                </div>
+
+                <!-- Tool Card 2: Automation Platform -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="automation">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">Zapier / Make.com</h3>
+                    <p class="text-gray-600 mb-4">
+                        Crucial for connecting AI outputs to real-world workflows. Automate lead qualification, content distribution, and data syncing.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Start Automating →</a>
+                </div>
+
+                <!-- Tool Card 3: CRM / Client Management -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="productivity">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">Notion / Airtable (AI Integration)</h3>
+                    <p class="text-gray-600 mb-4">
+                        I manage all client projects, documentation, and content calendars here. The native AI features help summarize notes and draft project briefs.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Organize Your Practice →</a>
+                </div>
+
+                <!-- Tool Card 4: Design/Visuals -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="generative productivity">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">Canva AI</h3>
+                    <p class="text-gray-600 mb-4">
+                        For rapidly generating high-quality visuals, diagrams, and presentation slides to articulate complex AI concepts to non-technical stakeholders.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Create Visuals →</a>
+                </div>
+
+                <!-- Tool Card 5: Code/DevOps -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="productivity automation">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">GitHub Copilot / VS Code</h3>
+                    <p class="text-gray-600 mb-4">
+                        Even as a strategist, efficient coding is key for prototyping. Copilot accelerates development and testing of custom AI scripts and demos.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Code Faster →</a>
+                </div>
+
+                <!-- Tool Card 6: Learning/Research -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-lg border-t-4 theme-border-primary hover:shadow-xl transition duration-300" data-categories="productivity">
+                    <h3 class="text-2xl font-bold mb-3 theme-primary">Perplexity / Academic Tools</h3>
+                    <p class="text-gray-600 mb-4">
+                        Staying current requires deep research. These tools provide grounded, up-to-date summaries and source tracing for the latest AI breakthroughs and legislation.
+                    </p>
+                    <a href="#" class="text-gray-600 font-semibold hover:theme-primary">Dive into Research →</a>
+                </div>
+            </div>
+
+            <div class="mt-12 p-8 bg-gray-200 rounded-xl text-center">
+                <p class="text-xl font-semibold theme-secondary">
+                    Disclaimer: Links above are for informational purposes only. I recommend tools based on utility, not paid endorsement.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG PAGE -->
+    <section id="blog" class="page-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold mb-4 ai-text-gradient">AI Insights & Blog</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    The latest thinking on AI strategy, ethical implementation, business automation, and the future of work.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100">
+                    <div class="h-48 theme-bg-primary flex items-center justify-center text-white text-5xl">💡</div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-2">October 26, 2025</p>
+                        <h2 class="text-xl font-bold text-gray-800 mb-3">5 Mistakes Companies Make When Adopting Generative AI</h2>
+                        <p class="text-gray-600 mb-4">
+                            From neglecting data governance to underestimating the cultural shift required, learn how to avoid common pitfalls in your AI journey.
+                        </p>
+                        <a href="#" class="theme-primary font-semibold hover:theme-secondary">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100">
+                    <div class="h-48 theme-bg-secondary flex items-center justify-center text-white text-5xl">🤖</div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-2">October 15, 2025</p>
+                        <h2 class="text-xl font-bold text-gray-800 mb-3">The Ethical Imperative: Building Trustworthy AI Systems</h2>
+                        <p class="text-gray-600 mb-4">
+                            A deep dive into fairness, transparency, and accountability—the pillars of responsible AI that leaders must prioritize.
+                        </p>
+                        <a href="#" class="theme-primary font-semibold hover:theme-secondary">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100">
+                    <div class="h-48 theme-bg-primary flex items-center justify-center text-white text-5xl">📈</div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-2">October 1, 2025</p>
+                        <h2 class="text-xl font-bold text-gray-800 mb-3">Automating the C-Suite: How AI is Reshaping Executive Decisions</h2>
+                        <p class="text-gray-600 mb-4">
+                            Explore case studies on how top-tier executives are leveraging predictive analytics and AI to drive strategic planning and innovation.
+                        </p>
+                        <a href="#" class="theme-primary font-semibold hover:theme-secondary">Read More →</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border theme-border-primary theme-primary font-semibold rounded-full hover:theme-bg-primary hover:text-white transition duration-300">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTING PAGE -->
+    <section id="consulting" class="page-section py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold mb-4 ai-text-gradient">Elevate Your AI Strategy</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    My consulting services are designed to give your organization a clear, ethical, and high-impact strategy for integrating AI into your operations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                <!-- Service Block 1: Strategy & Roadmaps -->
+                <div class="p-8 bg-white rounded-xl shadow-lg border-l-8 theme-border-primary">
+                    <h3 class="text-2xl font-bold mb-4 theme-primary">AI Strategy & Roadmapping</h3>
+                    <p class="text-gray-600 mb-4">
+                        A focused deep-dive to define where AI can create the most value in your organization.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="theme-primary mr-2 text-xl">→</span> **Strategic Opportunity Analysis:** Identifying high-ROI use cases.</li>
+                        <li class="flex items-start"><span class="theme-primary mr-2 text-xl">→</span> **Technology Stack Review:** Assessing current systems and necessary upgrades.</li>
+                        <li class="flex items-start"><span class="theme-primary mr-2 text-xl">→</span> **Customized 6-12 Month Roadmap:** Step-by-step plan for implementation.</li>
+                    </ul>
+                </div>
+
+                <!-- Service Block 2: Implementation & Training -->
+                <div class="p-8 bg-white rounded-xl shadow-lg border-l-8 theme-border-primary">
+                    <h3 class="text-2xl font-bold mb-4 theme-secondary">AI Implementation & Training</h3>
+                    <p class="text-gray-600 mb-4">
+                        Moving from strategy to execution, ensuring successful adoption and proficiency across your teams.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="theme-secondary mr-2 text-xl">→</span> **Pilot Program Management:** Overseeing initial AI deployment for immediate impact.</li>
+                        <li class="flex items-start"><span class="theme-secondary mr-2 text-xl">→</span> **Custom Workshops:** Hands-on training for leadership and technical teams.</li>
+                        <li class="flex items-start"><span class="theme-secondary mr-2 text-xl">→</span> **Ethical & Governance Frameworks:** Implementing responsible AI guidelines.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Consulting CTA Box -->
+            <div class="p-10 md:p-16 theme-bg-secondary text-white rounded-3xl ai-shadow text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business with AI?</h3>
+                <p class="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+                    I work with a select number of clients each quarter to ensure maximum personalized impact. Schedule an introductory call to discuss your specific needs.
+                </p>
+                <a href="#contact" onclick="showPage('contact')" class="px-8 py-4 bg-white theme-secondary font-bold rounded-full text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    Schedule Your Discovery Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="page-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold mb-4 ai-text-gradient">Get In Touch</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Whether you need strategic consulting, a keynote speaker, or have a general inquiry, I look forward to connecting.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-gray-600 focus:border-gray-600 transition duration-150">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-gray-600 focus:border-gray-600 transition duration-150">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject / Inquiry Type</label>
+                            <select id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-gray-600 focus:border-gray-600 transition duration-150 bg-white">
+                                <option value="" disabled selected>Select one...</option>
+                                <option value="consulting">AI Strategy Consulting</option>
+                                <option value="speaking">Keynote Speaking Opportunity</option>
+                                <option value="general">General Inquiry / Partnership</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-gray-600 focus:border-gray-600 transition duration-150"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 text-white font-semibold rounded-lg theme-bg-secondary hover:bg-gray-700 transition duration-300 transform hover:scale-[1.01]">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-message" class="mt-4 hidden p-3 rounded-lg text-center font-medium"></div>
+                </div>
+
+                <!-- Contact Info & Socials -->
+                <div class="space-y-8 p-6 md:p-0">
+                    <!-- Email -->
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-full theme-bg-primary text-white flex-shrink-0">✉️</div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Email Me</h3>
+                            <a href="mailto:SharonmagangaAI@gmail.com" class="theme-secondary hover:theme-primary transition duration-150">SharonmagangaAI@gmail.com</a>
+                        </div>
+                    </div>
+                    <!-- LinkedIn -->
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-full theme-bg-primary text-white flex-shrink-0">💼</div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/sharonmaganga/" target="_blank" class="theme-secondary hover:theme-primary transition duration-150">Connect with me on LinkedIn</a>
+                        </div>
+                    </div>
+                    <!-- Speaking Inquiries -->
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-full theme-bg-primary text-white flex-shrink-0">🎤</div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Speaking Engagements</h3>
+                            <p class="text-gray-600">For bookings and media inquiries, please reach out via the contact form with "Speaking" subject.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Updated Layout and Content) -->
+    <footer class="theme-bg-secondary text-white mt-16 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Footer columns set to display horizontally on medium screens and up. Using 'grid-cols-1 sm:grid-cols-3' to ensure horizontal on smaller devices than 'md' -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+                
+                <!-- Column 1: Let's Connect (Updated Content) -->
+                <div>
+                    <h5 class="text-xl font-bold mb-3 text-white">Let's Connect</h5>
+                    
+                    <p class="text-gray-400 text-sm mb-4">Are we friends on social media, yet? Use the buttons below to connect.</p>
+                    
+                    <!-- Social Icons (Below Text, High Contrast/White, Hover Primary Gold) -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/sharonmaganga/" target="_blank" class="text-white hover:theme-primary transition duration-150" title="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.56-4 0v5.604h-3v-11h3v1.765c1.397-2.716 7-2.584 7 3.238v5.997z"/></svg>
+                        </a>
+                         <a href="https://instagram.com/SharonmagangaAI" target="_blank" class="text-white hover:theme-primary transition duration-150" title="Instagram">
+                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.716 0 3.056.01 4.122.06 1.066.05 1.79.243 2.417.481.656.257 1.196.611 1.708 1.123s.866 1.052 1.123 1.708c.238.627.43 1.351.481 2.417.05 1.066.06 1.406.06 4.122s-.01 3.056-.06 4.122c-.05 1.066-.243 1.79-.481 2.417-.257.656-.611 1.196-1.123 1.708s-1.052.866-1.708 1.123c-.627.238-1.351.43-2.417.481-1.066.05-1.406.06-4.122.06s-3.056-.01-4.122-.06c-1.066-.05-1.79-.243-2.417-.481-.656-.257-1.196-.611-1.708-1.123s-.866-1.052-1.123-1.708c-.238-.627-.43-1.351-.481-2.417-.05-1.066-.06-1.406-.06-4.122s.01-3.0"/></svg>
+                         </a>
+                         <a href="https://www.youtube.com/@SharonMaganga-AI" target="_blank" class="text-white hover:theme-primary transition duration-150" title="YouTube">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.3c-.2-.7-.7-1.2-1.4-1.4C18.6 6.5 12 6.5 12 6.5s-6.6 0-8.1.4c-.7.2-1.2.7-1.4 1.4-.4 1.6-.4 4.8-.4 4.8s0 3.2.4 4.8c.2.7.7 1.2 1.4 1.4 1.5.4 8.1.4 8.1.4s6.6 0 8.1-.4c.7-.2 1.2-.7 1.4-1.4.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10.5 15.3V9.3l5 3-5 3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-3 theme-primary">Navigation</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" onclick="showPage('home')" class="text-gray-400 hover:text-white transition duration-150">Home</a></li>
+                        <li><a href="#about" onclick="showPage('about')" class="text-gray-400 hover:text-white transition duration-150">About Me</a></li>
+                        <li><a href="#tools" onclick="showPage('tools')" class="text-gray-400 hover:text-white transition duration-150">Tools</a></li>
+                        <li><a href="#blog" onclick="showPage('blog')" class="text-gray-400 hover:text-white transition duration-150">Blog</a></li>
+                        <li><a href="#consulting" onclick="showPage('consulting')" class="text-gray-400 hover:text-white transition duration-150">Consulting</a></li>
+                        <li><a href="#contact" onclick="showPage('contact')" class="text-gray-400 hover:text-white transition duration-150">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Resources -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-3 theme-primary">Resources</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#tools" onclick="showPage('tools')" class="text-gray-400 hover:text-white transition duration-150">Favorite Tools</a></li>
+                        <li><a href="#blog" onclick="showPage('blog')" class="text-gray-400 hover:text-white transition duration-150">Blog & Insights</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">My Books</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-gray-700">
+                <p class="text-sm text-gray-500">&copy; <span id="current-year-footer"></span> Sharon Maganga. All Rights Reserved. | Designed with 🤖 by Gemini.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for SPA Navigation and Functionality -->
+    <script>
+        // Function to switch visible page (MOVED OUTSIDE DOMContentLoaded)
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+                window.scrollTo(0, 0); // Scroll to top when page changes
+                
+                // Update URL hash without causing a page jump
+                if (history.pushState) {
+                    history.pushState(null, null, `#${pageId}`);
+                } else {
+                    window.location.hash = pageId;
+                }
+            }
+        }
+
+        // Function to filter tools based on category (MOVED OUTSIDE DOMContentLoaded)
+        function filterTools(category) {
+            const toolCards = document.querySelectorAll('.tool-card');
+            const buttons = document.querySelectorAll('.tools-category-btn');
+
+            // Update active button state
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter cards
+            toolCards.forEach(card => {
+                const categories = card.getAttribute('data-categories').split(' ');
+                if (category === 'all' || categories.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+            
+            // Handle initial page load based on URL hash
+            const initialHash = window.location.hash.substring(1) || 'home';
+            showPage(initialHash);
+            
+            // Form submission simulation
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formMessage = document.getElementById('form-message');
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+                    // Simulate API call/processing
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        
+                        formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                        formMessage.classList.add('bg-green-100', 'text-green-700');
+                        formMessage.textContent = 'Thank you for your message! I will get back to you shortly.';
+                        
+                        // Clear form after successful submission
+                        contactForm.reset();
+                    }, 2000);
+                });
+            }
+
+            // Listen for hash changes to update the page view
+            window.addEventListener('hashchange', () => {
+                const newHash = window.location.hash.substring(1) || 'home';
+                showPage(newHash);
+            });
+
+            // Initialize tools filtering
+            filterTools('all');
+        });
+    </script>
+</body>
+</html>
